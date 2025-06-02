@@ -1,0 +1,185 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: 0 0% 100%;
+  --foreground: 20 14.3% 4.1%;
+  --muted: 60 4.8% 95.9%;
+  --muted-foreground: 25 5.3% 44.7%;
+  --popover: 0 0% 100%;
+  --popover-foreground: 20 14.3% 4.1%;
+  --card: 0 0% 100%;
+  --card-foreground: 20 14.3% 4.1%;
+  --border: 20 5.9% 90%;
+  --input: 20 5.9% 90%;
+  --primary: 207 90% 54%;
+  --primary-foreground: 211 100% 99%;
+  --secondary: 60 4.8% 95.9%;
+  --secondary-foreground: 24 9.8% 10%;
+  --accent: 60 4.8% 95.9%;
+  --accent-foreground: 24 9.8% 10%;
+  --destructive: 0 84.2% 60.2%;
+  --destructive-foreground: 60 9.1% 97.8%;
+  --ring: 20 14.3% 4.1%;
+  --radius: 0.5rem;
+  
+  /* Space theme colors */
+  --space-black: 10 10% 4%;
+  --space-dark: 0 0% 10%;
+  --space-gray: 0 0% 16%;
+  --cosmic-blue: 207 90% 54%;
+  --cosmic-purple: 250 84% 67%;
+  --aurora-green: 158 64% 52%;
+  --solar-orange: 43 96% 56%;
+  --stellar-gray: 220 13% 46%;
+}
+
+.dark {
+  --background: 240 10% 3.9%;
+  --foreground: 0 0% 98%;
+  --muted: 240 3.7% 15.9%;
+  --muted-foreground: 240 5% 64.9%;
+  --popover: 240 10% 3.9%;
+  --popover-foreground: 0 0% 98%;
+  --card: 240 10% 3.9%;
+  --card-foreground: 0 0% 98%;
+  --border: 240 3.7% 15.9%;
+  --input: 240 3.7% 15.9%;
+  --primary: 207 90% 54%;
+  --primary-foreground: 211 100% 99%;
+  --secondary: 240 3.7% 15.9%;
+  --secondary-foreground: 0 0% 98%;
+  --accent: 240 3.7% 15.9%;
+  --accent-foreground: 0 0% 98%;
+  --destructive: 0 62.8% 30.6%;
+  --destructive-foreground: 0 0% 98%;
+  --ring: 240 4.9% 83.9%;
+  --radius: 0.5rem;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply font-sans antialiased;
+    background: linear-gradient(135deg, #000000 0%, #0a0a2e 25%, #1a1a4e 50%, #0f0f33 75%, #000000 100%);
+    color: white;
+    min-height: 100vh;
+    position: relative;
+  }
+  
+  body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at 20% 80%, rgba(0, 255, 255, 0.15) 0%, transparent 60%),
+                radial-gradient(circle at 80% 20%, rgba(255, 100, 255, 0.12) 0%, transparent 55%),
+                radial-gradient(circle at 40% 40%, rgba(100, 200, 255, 0.18) 0%, transparent 50%),
+                radial-gradient(circle at 70% 70%, rgba(255, 200, 0, 0.1) 0%, transparent 45%);
+    pointer-events: none;
+    z-index: 1;
+  }
+}
+
+@layer utilities {
+  .bg-space-black {
+    background-color: hsl(var(--space-black));
+  }
+  
+  .bg-space-dark {
+    background-color: hsl(var(--space-dark));
+  }
+  
+  .bg-space-gray {
+    background-color: hsl(var(--space-gray));
+  }
+  
+  .text-cosmic-blue {
+    color: hsl(var(--cosmic-blue));
+  }
+  
+  .text-cosmic-purple {
+    color: hsl(var(--cosmic-purple));
+  }
+  
+  .text-aurora-green {
+    color: hsl(var(--aurora-green));
+  }
+  
+  .text-solar-orange {
+    color: hsl(var(--solar-orange));
+  }
+  
+  .text-stellar-gray {
+    color: hsl(var(--stellar-gray));
+  }
+  
+  .bg-cosmic-blue {
+    background-color: hsl(var(--cosmic-blue));
+  }
+  
+  .bg-cosmic-purple {
+    background-color: hsl(var(--cosmic-purple));
+  }
+  
+  .bg-aurora-green {
+    background-color: hsl(var(--aurora-green));
+  }
+  
+  .bg-solar-orange {
+    background-color: hsl(var(--solar-orange));
+  }
+  
+  .bg-stellar-gray {
+    background-color: hsl(var(--stellar-gray));
+  }
+  
+  .border-stellar-gray {
+    border-color: hsl(var(--stellar-gray));
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes twinkle {
+  0%, 100% {
+    opacity: 0.3;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+@keyframes pulse-slow {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.animate-twinkle {
+  animation: twinkle 3s ease-in-out infinite;
+}
+
+.animate-pulse-slow {
+  animation: pulse-slow 3s ease-in-out infinite;
+}
